@@ -1,0 +1,10 @@
+{
+  "short_name": "Parados",
+  "name": "Parados App",
+  "icons": [
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
