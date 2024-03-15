@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/parados-frontend/static/css/main.c124b6f8.css",
-    "main.js": "/parados-frontend/static/js/main.7a17e8ed.js",
+    "main.js": "/parados-frontend/static/js/main.bdef0984.js",
     "static/js/453.982118da.chunk.js": "/parados-frontend/static/js/453.982118da.chunk.js",
     "index.html": "/parados-frontend/index.html",
     "main.c124b6f8.css.map": "/parados-frontend/static/css/main.c124b6f8.css.map",
-    "main.7a17e8ed.js.map": "/parados-frontend/static/js/main.7a17e8ed.js.map",
+    "main.bdef0984.js.map": "/parados-frontend/static/js/main.bdef0984.js.map",
     "453.982118da.chunk.js.map": "/parados-frontend/static/js/453.982118da.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c124b6f8.css",
-    "static/js/main.7a17e8ed.js"
+    "static/js/main.bdef0984.js"
   ]
 }
