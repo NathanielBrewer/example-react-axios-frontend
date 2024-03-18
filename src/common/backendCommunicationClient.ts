@@ -33,7 +33,7 @@ export class BackendCommunicationClient {
         return {
           success: true,
           message: 'Successfully added text',
-          data: response.data.id,
+          data: response.data,
         }
       } else {
         throw new Error();
