@@ -1,23 +1,18 @@
-import { useEffect } from 'react';
 import './App.css';
-import { BackendCommunicationClient } from './common/backendCommunicationClient';
+import FileUploadForm from './components/fileOperations';
+import TextOperations from './components/textOperations';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  let backendCommunicationClient = BackendCommunicationClient.getInstance();
-
-  useEffect(() => {
-    (async function () {
-      let result = await backendCommunicationClient.postText('test text');
-      console.log('result', result);
-      let testAddResult = await backendCommunicationClient.getText('0Q4KYqugnsUmVMvpV8QS');
-      console.log('testAddResult', testAddResult);
-    })()
-  })
   return (
-    <div className="App">
-      <header className="App-header">
-        Parados App
-      </header>
+    <div className="App App-header">
+      <p className="text-warning">
+        <b>Only texts and images added/uploaded in this session are availble to you</b>
+      </p>
+      <TextOperations />
+      <FileUploadForm />
+      <ToastContainer />
     </div>
   );
 }

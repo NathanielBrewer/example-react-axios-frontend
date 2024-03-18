@@ -1,18 +1,44 @@
-.App {
-  text-align: center;
-}
+@import './index.css';
 
-.App-header {
+.App {
+  text-align: left;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: start;
+  font-size: 1rem;
   color: white;
+  section:first-of-type {
+    h2 {
+      margin-top: 0 !important;
+    }
+  }
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.section {
+  width: 90%;
+  padding: 0rem 1rem 1rem 1rem;
+  border-bottom: 1px solid white;
+}
+
+.text-warning {
+  color: darkorange;
+}
+
+.w-100 {
+  width: 100%;
+  min-width: 100%;
+}
+
+.upload-form {
+  display: inline-flex;
+  min-width: 100%;
+  max-width: 100%;
+  justify-content: space-between;
 }

@@ -33,7 +33,7 @@ export class BackendCommunicationClient {
         return {
           success: true,
           message: 'Successfully added text',
-          data: response.data.id,
+          data: response.data,
         }
       } else {
         throw new Error();
@@ -74,5 +74,54 @@ export class BackendCommunicationClient {
       }
     }
     return toReturn!;
+  }
+
+  public async uploadFile(formData: FormData): Promise<BackendCommunicationClientReturnType> {
+    try {
+      let response = await this.axiosInstance({
+        method: 'post',
+        url: '/file',
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        data: formData
+      });
+      return {
+        success: true,
+        message: 'Successfully uploaded file',
+        data: {
+          filename: response.data.filename,
+        }
+      }
+    } catch (error) {
+      console.error('error in uploadFIle', error);
+      return {
+        success: false,
+        message: 'Failed to upload file'
+      };
+    }
+  }
+
+  public async downloadFile(filename: string): Promise<BackendCommunicationClientReturnType> {
+    try {
+      let response = await this.axiosInstance({
+        method: 'get',
+        url: `/file/${filename}`,
+        responseType: 'blob',
+      });
+      return {
+        success: true,
+        message: 'Successfully retrieved file from Firebase',
+        data: {
+          blob: new Blob([response.data])
+        }
+      }
+    } catch (error) {
+      console.error('error in downloadFIle', error);
+      return {
+        success: false,
+        message: 'Failed to retrieve file from Firebase'
+      };
+    }
   }
 }
