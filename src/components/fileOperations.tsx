@@ -62,7 +62,7 @@ function FileUploadForm() {
   }
 
   return (
-    <section className="section w-100">
+    <section className="section">
       <h2>Image file operations</h2>
       <p>Instructions:</p>
       <ul>
@@ -71,7 +71,7 @@ function FileUploadForm() {
         <li>Clicking a <b>Download image file</b> button will download the file from Firebase storage and save it on your machine</li>
       </ul>
       <form className="upload-form" onSubmit={handleSubmit}>
-        <input className="w-100" type="file" accept="image/png, image/jpeg" onChange={handleFileChange} ref={fileInputRef} />
+        <input type="file" accept="image/png, image/jpeg" onChange={handleFileChange} ref={fileInputRef} />
         <button type="submit">Upload image file</button>
       </form>
       <p>Available files:</p>
