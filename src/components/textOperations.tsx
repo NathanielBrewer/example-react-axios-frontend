@@ -54,7 +54,7 @@ function TextOperations() {
       />
       <button onClick={handleAddText}>Add</button>
       <p>Available text IDs:</p>
-      <ul style={{ maxHeight: '200px', overflowY: 'auto' }}>
+      <ul>
         {submittedIds.map((id) => (
           <li key={id}>
             <b>{id}</b> <button onClick={() => handleFetchText(id)}>Get text</button>
