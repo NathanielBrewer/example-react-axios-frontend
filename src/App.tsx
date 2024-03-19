@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div className="App App-header">
-      <p className="text-warning">
+      <p className="text-warning usage-note">
         <b>Only texts and images added/uploaded in this session are availble to you</b>
       </p>
       <TextOperations />

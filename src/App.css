@@ -42,3 +42,7 @@
   max-width: 100%;
   justify-content: space-between;
 }
+
+.usage-note {
+  padding: 0 1rem;
+}
