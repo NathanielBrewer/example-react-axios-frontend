@@ -10,6 +10,10 @@ function TextOperations() {
   const [submittedIds, setSubmittedIds] = useState<string[]>([]);
 
   async function handleAddText(): Promise<void> {
+    if (text === '') {
+      toast.error('Please enter text first');
+      return;
+    }
     try {
       const result = await backendCommunicationClient.postText(text);
       if(result.success) {
