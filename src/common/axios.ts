@@ -1,5 +1,4 @@
 import axios from 'axios';
-import config from '../config';
 
 // HACK: should be using env vars to establish an environment-dependent config
 const axiosInstance = axios.create({
