@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App App-header">
       <p className="text-warning usage-note">
-        <b>Only texts and images added/uploaded in this session are availble to you</b>
+        <b>Only texts and images added/uploaded in this session are available to you</b>
       </p>
       <TextOperations />
       <FileUploadForm />
