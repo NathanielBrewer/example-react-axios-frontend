@@ -74,7 +74,7 @@ function FileOperations() {
         <button type="submit">Upload image file</button>
       </form>
       <p>Available files:</p>
-      <ul style={{ maxHeight: '200px', overflowY: 'auto' }}>
+      <ul>
         {uploadedFilenames.map((filename) => (
           <li key={filename}>
             <b>{filename}</b> <button onClick={() => handleDownloadFile(filename)}>Download file</button>
