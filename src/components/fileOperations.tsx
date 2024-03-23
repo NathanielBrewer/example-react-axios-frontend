@@ -3,7 +3,7 @@ import '../App.css';
 import { BackendCommunicationClient } from '../common/backendCommunicationClient';
 import { toast } from 'react-toastify';
 
-function FileUploadForm() {
+function FileOperations() {
   const backendCommunicationClient = BackendCommunicationClient.getInstance();
 
   const [file, setFile] = useState(null);
@@ -85,4 +85,4 @@ function FileUploadForm() {
   );
 }
 
-export default FileUploadForm;
+export default FileOperations;
