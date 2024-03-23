@@ -14,8 +14,7 @@ function FileUploadForm() {
     setFile(event.target.files[0]);
   };
 
-  async function handleSubmit(event: any): Promise<void> {
-    event.preventDefault();
+  async function handleSubmit(): Promise<void> {
     if (!file) {
       toast.error('Please select a file first');
       return;
