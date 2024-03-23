@@ -14,6 +14,9 @@ function FileOperations() {
     setFile(event.target.files[0]);
   };
 
+  /**
+   * @description Handle user click on file upload button and call BackendCommunicationClient.instance.uploadFile() with file as FormData
+   */
   async function handleSubmit(): Promise<void> {
     if (!file) {
       toast.error('Please select a file first');
@@ -39,6 +42,10 @@ function FileOperations() {
     }
   };
 
+  /**
+   * @description Handle user click on file download button and pass files unique filename to BackendCommunicationClient.instance.downloadFile
+   * Receive file as blob from backend, create anchor with it and simulate click to initiate download
+   */
   async function handleDownloadFile(filename: string): Promise<void> {
     try {
       const result = await backendCommunicationClient.downloadFile(filename);

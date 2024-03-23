@@ -9,6 +9,9 @@ function TextOperations() {
   const [text, setText] = useState('');
   const [submittedIds, setSubmittedIds] = useState<string[]>([]);
 
+  /**
+   * @description Handle user click add text and call BackendCommunicationClient.instance.postText with text value
+   */
   async function handleAddText(): Promise<void> {
     if (text === '') {
       toast.error('Please enter text first');
@@ -28,6 +31,9 @@ function TextOperations() {
     }
   };
   
+  /**
+   * @description Handle user click on fetch button for a text id. Display text when retrieved from backend
+   */
   async function handleFetchText(id: string): Promise<void> {
     try {
       const result = await backendCommunicationClient.getText(id);
