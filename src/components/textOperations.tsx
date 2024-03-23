@@ -48,7 +48,7 @@ function TextOperations() {
       <ul>
         <li>Enter text and click <b>Add</b> to add text to the Firestore Database</li>
         <li>Once your text has been added, its ID will be added to the list of available texts</li>
-        <li>Click on any ID to retrieve it from the Firestore Database and display its value</li>
+        <li>Click on any ID's <b>Get text</b> button to retrieve it from the Firestore Database and display its value</li>
       </ul>
       <input
         type="text"
