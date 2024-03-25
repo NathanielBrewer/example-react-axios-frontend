@@ -17,7 +17,8 @@ function FileOperations() {
   /**
    * @description Handle user click on file upload button and call BackendCommunicationClient.instance.uploadFile() with file as FormData
    */
-  async function handleSubmit(): Promise<void> {
+  async function handleSubmit(event: any): Promise<void> {
+    event.preventDefault();
     if (!file) {
       toast.error('Please select a file first');
       return;
