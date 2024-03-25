@@ -2,7 +2,7 @@ Live demo available at <https://nathanielbrewer.github.io/parados-frontend/>
 
 ## Stack
 - Framework/library: React
-- Build: react-scripts
+- Build: react-scripts/webpack
 - Hosting: GitHub pages
 - Language: TypeScript
 
