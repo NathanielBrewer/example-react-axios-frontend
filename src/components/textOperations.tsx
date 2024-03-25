@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../App.css';
-import { toast } from 'react-toastify';
+import { toast, Id } from 'react-toastify';
 import { BackendCommunicationClient } from '../common/backendCommunicationClient';
 
 function TextOperations() {
@@ -17,16 +17,20 @@ function TextOperations() {
       toast.error('Please enter text first');
       return;
     }
+    const toastId: Id = toast.loading('Adding text');
     try {
       const result = await backendCommunicationClient.postText(text);
       if(result.success) {
         setSubmittedIds([...submittedIds, result.data!.id]);
         setText('');
+        toast.dismiss(toastId);
         toast.success(result.message);
       } else {
+        toast.dismiss(toastId);
         toast.error(result.message);
       }
     } catch (error) {
+      toast.dismiss(toastId);
       toast.error((error as Error).message);
     }
   };
@@ -35,14 +39,18 @@ function TextOperations() {
    * @description Handle user click on fetch button for a text id. Display text when retrieved from backend
    */
   async function handleFetchText(id: string): Promise<void> {
+    const toastId: Id = toast.loading('Getting text');
     try {
       const result = await backendCommunicationClient.getText(id);
       if(result.success) {
+        toast.dismiss(toastId);
         toast.success(`Text for ID ${id}: ${result.data!.text}`);
       } else {
+        toast.dismiss(toastId);
         toast.error(result.message);
       }
     } catch (error) {
+      toast.dismiss(toastId);
       toast.error((error as Error).message);
     }
   };

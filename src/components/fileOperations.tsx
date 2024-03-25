@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import '../App.css';
 import { BackendCommunicationClient } from '../common/backendCommunicationClient';
-import { toast } from 'react-toastify';
+import { toast, Id } from 'react-toastify';
 
 function FileOperations() {
   const backendCommunicationClient = BackendCommunicationClient.getInstance();
@@ -26,19 +26,22 @@ function FileOperations() {
 
     const formData = new FormData();
     formData.append('file', file);
-
+    const toastId: Id = toast.loading('Uploading file');
     try {
       const result = await backendCommunicationClient.uploadFile(formData);
       if(result.success) {
         setUploadedFilenames(prevFilenames => [...prevFilenames, result.data!.filename]);
+        toast.dismiss(toastId);
         toast.success(result.message);
         if(fileInputRef.current) {
           fileInputRef.current.value = '';
         }
       } else {
+        toast.dismiss(toastId);
         toast.error(result.message);
       }
     } catch (error) {
+      toast.dismiss(toastId);
       toast.error((error as Error).message);
     }
   };
@@ -48,6 +51,7 @@ function FileOperations() {
    * Receive file as blob from backend, create anchor with it and simulate click to initiate download
    */
   async function handleDownloadFile(filename: string): Promise<void> {
+    const toastId: Id = toast.loading('Downloading file');
     try {
       const result = await backendCommunicationClient.downloadFile(filename);
       if(result.success) {
@@ -59,11 +63,14 @@ function FileOperations() {
         link.click();
         document.body.removeChild(link);
         window.URL.revokeObjectURL(fileURL);
+        toast.dismiss(toastId);
         toast.success(`Successfully downloaded ${filename}`);
       } else {
+        toast.dismiss(toastId);
         toast.error(result.message);
       }
     } catch (error) {
+      toast.dismiss(toastId);
       toast.error((error as Error).message);
     }
   }

@@ -13,7 +13,6 @@ export class BackendCommunicationClient {
 
   private constructor() {}
 
-  
   /**
    * @description Returns singleton instance. Creates it first if doesn't already exist
    */
