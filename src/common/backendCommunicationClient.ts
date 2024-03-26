@@ -13,13 +13,19 @@ export class BackendCommunicationClient {
 
   private constructor() {}
 
+  /**
+   * @description Returns singleton instance. Creates it first if doesn't already exist
+   */
   public static getInstance(): BackendCommunicationClient {
     if(!BackendCommunicationClient.instance) {
       BackendCommunicationClient.instance = new BackendCommunicationClient();
     }
     return BackendCommunicationClient.instance;
   }
-
+  
+  /**
+   * @description Send text string to backend /text endpoint via request.data.text
+   */
   public async postText(text: string): Promise<BackendCommunicationClientReturnType> {
     try {
       let response = await this.axiosInstance({
@@ -47,6 +53,9 @@ export class BackendCommunicationClient {
     }
   }
 
+  /**
+   * @description Submit GET request to backend at route /text/${id} where id is the string param
+   */
   public async getText(id: string): Promise<BackendCommunicationClientReturnType> {
     let toReturn: BackendCommunicationClientReturnType;
     try {
@@ -75,7 +84,10 @@ export class BackendCommunicationClient {
     }
     return toReturn!;
   }
-
+  
+  /**
+   * @description Submit POST request to backend route /file where body.data is the formData param
+   */
   public async uploadFile(formData: FormData): Promise<BackendCommunicationClientReturnType> {
     try {
       let response = await this.axiosInstance({
@@ -102,6 +114,10 @@ export class BackendCommunicationClient {
     }
   }
 
+  
+  /**
+   * @description Submit GET request to backend route /file/${filename} where filename is the string param
+   */
   public async downloadFile(filename: string): Promise<BackendCommunicationClientReturnType> {
     try {
       let response = await this.axiosInstance({

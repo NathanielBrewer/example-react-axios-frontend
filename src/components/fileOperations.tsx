@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
 import '../App.css';
 import { BackendCommunicationClient } from '../common/backendCommunicationClient';
-import { toast } from 'react-toastify';
+import { toast, Id } from 'react-toastify';
 
-function FileUploadForm() {
+function FileOperations() {
   const backendCommunicationClient = BackendCommunicationClient.getInstance();
 
   const [file, setFile] = useState(null);
@@ -14,6 +14,9 @@ function FileUploadForm() {
     setFile(event.target.files[0]);
   };
 
+  /**
+   * @description Handle user click on file upload button and call BackendCommunicationClient.instance.uploadFile() with file as FormData
+   */
   async function handleSubmit(event: any): Promise<void> {
     event.preventDefault();
     if (!file) {
@@ -23,24 +26,32 @@ function FileUploadForm() {
 
     const formData = new FormData();
     formData.append('file', file);
-
+    const toastId: Id = toast.loading('Uploading file');
     try {
       const result = await backendCommunicationClient.uploadFile(formData);
       if(result.success) {
         setUploadedFilenames(prevFilenames => [...prevFilenames, result.data!.filename]);
+        toast.dismiss(toastId);
         toast.success(result.message);
         if(fileInputRef.current) {
           fileInputRef.current.value = '';
         }
       } else {
+        toast.dismiss(toastId);
         toast.error(result.message);
       }
     } catch (error) {
+      toast.dismiss(toastId);
       toast.error((error as Error).message);
     }
   };
 
+  /**
+   * @description Handle user click on file download button and pass files unique filename to BackendCommunicationClient.instance.downloadFile
+   * Receive file as blob from backend, create anchor with it and simulate click to initiate download
+   */
   async function handleDownloadFile(filename: string): Promise<void> {
+    const toastId: Id = toast.loading('Downloading file');
     try {
       const result = await backendCommunicationClient.downloadFile(filename);
       if(result.success) {
@@ -52,11 +63,14 @@ function FileUploadForm() {
         link.click();
         document.body.removeChild(link);
         window.URL.revokeObjectURL(fileURL);
+        toast.dismiss(toastId);
         toast.success(`Successfully downloaded ${filename}`);
       } else {
+        toast.dismiss(toastId);
         toast.error(result.message);
       }
     } catch (error) {
+      toast.dismiss(toastId);
       toast.error((error as Error).message);
     }
   }
@@ -75,7 +89,7 @@ function FileUploadForm() {
         <button type="submit">Upload image file</button>
       </form>
       <p>Available files:</p>
-      <ul style={{ maxHeight: '200px', overflowY: 'auto' }}>
+      <ul>
         {uploadedFilenames.map((filename) => (
           <li key={filename}>
             <b>{filename}</b> <button onClick={() => handleDownloadFile(filename)}>Download file</button>
@@ -86,4 +100,4 @@ function FileUploadForm() {
   );
 }
 
-export default FileUploadForm;
+export default FileOperations;
