@@ -1,5 +1,5 @@
 import './App.css';
-import FileUploadForm from './components/fileOperations';
+import FileOperations from './components/fileOperations';
 import TextOperations from './components/textOperations';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,7 +11,7 @@ function App() {
         <b>Only texts and images added/uploaded in this session are available to you</b>
       </p>
       <TextOperations />
-      <FileUploadForm />
+      <FileOperations />
       <ToastContainer />
     </div>
   );
