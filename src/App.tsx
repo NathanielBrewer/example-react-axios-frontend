@@ -2,7 +2,7 @@ import './App.css';
 import FileOperations from './components/fileOperations';
 import TextOperations from './components/textOperations';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
   return (
