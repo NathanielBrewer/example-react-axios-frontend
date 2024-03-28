@@ -1,4 +1,7 @@
-Live demo available at <https://nathanielbrewer.github.io/parados-frontend/>
+# Example React, Axios, TypeScript project
+
+Live demo available at <https://nathanielbrewer.github.io/parados-frontend/>   
+Backend project: <https://github.com/NathanielBrewer/fastify-firebase>
 
 ## Stack
 - Framework/library: React
