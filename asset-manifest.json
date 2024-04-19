@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/example-react-axios-frontend/static/css/main.111dd58c.css",
-    "main.js": "/example-react-axios-frontend/static/js/main.7bb18ff9.js",
+    "main.js": "/example-react-axios-frontend/static/js/main.3a239a41.js",
     "static/js/453.433dd9d5.chunk.js": "/example-react-axios-frontend/static/js/453.433dd9d5.chunk.js",
     "index.html": "/example-react-axios-frontend/index.html",
     "main.111dd58c.css.map": "/example-react-axios-frontend/static/css/main.111dd58c.css.map",
-    "main.7bb18ff9.js.map": "/example-react-axios-frontend/static/js/main.7bb18ff9.js.map",
+    "main.3a239a41.js.map": "/example-react-axios-frontend/static/js/main.3a239a41.js.map",
     "453.433dd9d5.chunk.js.map": "/example-react-axios-frontend/static/js/453.433dd9d5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.111dd58c.css",
-    "static/js/main.7bb18ff9.js"
+    "static/js/main.3a239a41.js"
   ]
 }
